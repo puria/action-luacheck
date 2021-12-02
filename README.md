@@ -1,11 +1,10 @@
 # action-template
 
-<!-- TODO: replace reviewdog/action-template with your repo name -->
-[![Test](https://github.com/reviewdog/action-template/workflows/Test/badge.svg)](https://github.com/reviewdog/action-template/actions?query=workflow%3ATest)
-[![reviewdog](https://github.com/reviewdog/action-template/workflows/reviewdog/badge.svg)](https://github.com/reviewdog/action-template/actions?query=workflow%3Areviewdog)
-[![depup](https://github.com/reviewdog/action-template/workflows/depup/badge.svg)](https://github.com/reviewdog/action-template/actions?query=workflow%3Adepup)
-[![release](https://github.com/reviewdog/action-template/workflows/release/badge.svg)](https://github.com/reviewdog/action-template/actions?query=workflow%3Arelease)
-[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/reviewdog/action-template?logo=github&sort=semver)](https://github.com/reviewdog/action-template/releases)
+[![Test](https://github.com/puria/action-luacheck/workflows/Test/badge.svg)](https://github.com/puria/action-luacheck/actions?query=workflow%3ATest)
+[![reviewdog](https://github.com/puria/action-luacheck/workflows/reviewdog/badge.svg)](https://github.com/puria/action-luacheck/actions?query=workflow%3Areviewdog)
+[![depup](https://github.com/puria/action-luacheck/workflows/depup/badge.svg)](https://github.com/puria/action-luacheck/actions?query=workflow%3Adepup)
+[![release](https://github.com/puria/action-luacheck/workflows/release/badge.svg)](https://github.com/puria/action-luacheck/actions?query=workflow%3Arelease)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/puria/action-luacheck?logo=github&sort=semver)](https://github.com/puria/action-luacheck/releases)
 [![action-bumpr supported](https://img.shields.io/badge/bumpr-supported-ff69b4?logo=github&link=https://github.com/haya14busa/action-bumpr)](https://github.com/haya14busa/action-bumpr)
 
 ![github-pr-review demo](https://user-images.githubusercontent.com/3797062/73162963-4b8e2b00-4132-11ea-9a3f-f9c6f624c79f.png)
@@ -23,7 +22,6 @@ This repo contains a sample action to run [misspell](https://github.com/client9/
 
 ## Input
 
-<!-- TODO: update -->
 ```yaml
 inputs:
   github_token:
@@ -52,26 +50,24 @@ inputs:
   reviewdog_flags:
     description: 'Additional reviewdog flags'
     default: ''
-  ### Flags for <linter-name> ###
-  locale:
-    description: '-locale flag of misspell. (US/UK)'
+  ### Flags for luacheck ###
+  luacheck_flags:
+    description: 'luacheck flags. (luacheck --format plain <luacheck_flags> .)'
     default: ''
 ```
 
 ## Usage
-<!-- TODO: update. replace `template` with the linter name -->
 
 ```yaml
-name: reviewdog
+name: luacheck reviewdog
 on: [pull_request]
 jobs:
-  # TODO: change `linter_name`.
-  linter_name:
-    name: runner / <linter-name>
+  luacheck:
+    name: runner / luacheck
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: reviewdog/action-template@v1
+      - uses: puria/action-luacheck@v1
         with:
           github_token: ${{ secrets.github_token }}
           # Change reviewdog reporter if you need [github-pr-check,github-check,github-pr-review].
@@ -111,4 +107,4 @@ Supported linters:
 This repository uses [reviewdog/action-depup](https://github.com/reviewdog/action-depup) to update
 reviewdog version.
 
-[![reviewdog depup demo](https://user-images.githubusercontent.com/3797062/73154254-170e7500-411a-11ea-8211-912e9de7c936.png)](https://github.com/reviewdog/action-template/pull/6)
+[![reviewdog depup demo](https://user-images.githubusercontent.com/3797062/73154254-170e7500-411a-11ea-8211-912e9de7c936.png)](https://github.com/puria/action-luacheck/pull/6)

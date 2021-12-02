@@ -39,17 +39,16 @@ jobs:
           reporter: ${{ steps.reporter.outputs.value }}
           level: warning
 
-  misspell:
+  luacheck:
     name: runner / misspell
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: reviewdog/action-misspell@v1
+      - uses: puria/action-luacheck@v1
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-check
           level: warning
-          locale: "US"
 
   alex:
     name: runner / alex
