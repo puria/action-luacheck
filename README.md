@@ -30,6 +30,10 @@ inputs:
   workdir:
     description: 'Working directory relative to the root directory.'
     default: '.'
+  ### Flags for luacheck ###
+  luacheck_flags:
+    description: 'luacheck flags. (luacheck --format plain <luacheck_flags> .)'
+    default: ''
   ### Flags for reviewdog ###
   level:
     description: 'Report level for reviewdog [info,warning,error]'
@@ -50,10 +54,6 @@ inputs:
   reviewdog_flags:
     description: 'Additional reviewdog flags'
     default: ''
-  ### Flags for luacheck ###
-  luacheck_flags:
-    description: 'luacheck flags. (luacheck --format plain <luacheck_flags> .)'
-    default: ''
 ```
 
 ## Usage
@@ -69,7 +69,10 @@ jobs:
       - uses: actions/checkout@v2
       - uses: puria/action-luacheck@v1
         with:
-          github_token: ${{ secrets.github_token }}
+          # luacheck is run then on the specified working directory relative to the root project
+          workdir: src/lua
+          # pass optional flags to luacheck
+          luacheck_flasg: --std lua54
           # Change reviewdog reporter if you need [github-pr-check,github-check,github-pr-review].
           reporter: github-pr-review
           # Change reporter level if you need.
