@@ -1,4 +1,4 @@
-# action-template
+# Github Action to run luacheck with reviewdog 🐶
 
 [![Test](https://github.com/puria/action-luacheck/workflows/Test/badge.svg)](https://github.com/puria/action-luacheck/actions?query=workflow%3ATest)
 [![reviewdog](https://github.com/puria/action-luacheck/workflows/reviewdog/badge.svg)](https://github.com/puria/action-luacheck/actions?query=workflow%3Areviewdog)
