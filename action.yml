@@ -36,7 +36,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
 
-# Ref: https://haya14busa.github.io/github-action-brandings/
+# https://actions-cool.github.io/github-action-branding/
 branding:
-  icon: 'check-circle'
-  color: 'blue'
+  icon: 'moon'
+  color: 'green'
